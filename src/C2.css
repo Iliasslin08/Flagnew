@@ -1,0 +1,78 @@
+/* C2.css */
+
+.div2 {
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 400px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #3498db;
+  }
+  
+  input[type='radio'] {
+    margin-right: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type='text'],
+  select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  select {
+    cursor: pointer;
+  }
+  
+  select option {
+    font-size: 16px;
+  }
+  
+  img {
+    width: 80px;
+    height: auto;
+    margin-right: 20px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+  }
+  
+  h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+  }
+  
+  p {
+    margin: 0;
+    color: #777;
+  }
+  .divkbira{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .divww{
+    display: flex;
+    border-radius: 20px;
+    border: 2px solid #ed6969;
+    width:290px;
+    height: auto;
+  }
+.c2{
+    padding-bottom: 10px;
+}
+.aa{
+    padding-left: 10px;
+}
