@@ -1,0 +1,78 @@
+/* Flag.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.center {
+  text-align: center;
+}
+
+.button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.flag-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.options {
+  margin-top: 20px;
+}
+
+.option {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.option:hover {
+  background-color: #2980b9;
+}
+
+.score {
+  margin-top: 20px;
+}
+
+/* Flag.css */
+
+/* ... (previous styles) ... */
+
+.score p {
+  margin: 10px;
+  font-size: 18px;
+  background-color: #ff7878;
+  max-width: 200px;
+  border-radius: 10px; /* Update border-radius to 10px (not a percentage) */
+  padding: 10px; /* Adjust padding as needed */
+  text-align: center; /* Center the text within the container */
+}

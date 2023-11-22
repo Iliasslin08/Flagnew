@@ -1,15 +1,11 @@
 import React from 'react'
-import {liste} from './liste.js'
-import C1 from './C1'
-import C2 from './C2.js'
-function App() {
+import Flag from './Flag'
+function app() {
   return (
     <div>
-    
-      <C2 composant={liste}/>
+      <Flag/>
     </div>
   )
 }
 
-export default App
-
+export default app
