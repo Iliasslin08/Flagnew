@@ -3,7 +3,10 @@ import Flag from './Flag'
 function app() {
   return (
     <div>
-      <Flag/>
+      <center>
+          <Flag/>
+      </center>
+    
     </div>
   )
 }
