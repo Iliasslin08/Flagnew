@@ -175,7 +175,7 @@ function FlagGame() {
             style={{ display: randomFlagImage ? "none" : "block" }}
             onClick={getRandom}
           >
-            ARE YOU READY?
+            ARE YOU READY??
           </Button>
 
           <h4 className="mt-3">Votre stage est: {stage}</h4>
