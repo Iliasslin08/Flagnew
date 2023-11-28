@@ -79,7 +79,7 @@ h3 {
 .score .p1{
   margin: 15px;
   font-size: 20px;
-  background-color: rgb(255, 134, 120);
+  background-color: rgb(161, 255, 120);
   max-width: 250px;
   border-radius: 12px;
   padding: 15px 20px;
@@ -89,7 +89,7 @@ h3 {
 .score .p2 {
   margin: 15px;
   font-size: 20px;
-  background-color: rgb(165, 255, 120);
+  background-color: rgb(243, 0, 0);
   max-width: 250px;
   border-radius: 12px;
   padding: 15px 20px;

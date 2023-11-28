@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Button, Container, Row, Col, Alert } from "react-bootstrap";
+import { Button, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './Flag.css'
+
 function FlagGame() {
   const [allFlags, setAllFlags] = useState([]);
   const [randomFlagImage, setRandomFlagImage] = useState(null);
@@ -10,11 +11,11 @@ function FlagGame() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [count, setCount] = useState(0);
   const [stage, setStage] = useState(1);
-  const [niveau,setnive]=useState("votre stage est:")
-  const [niveau1,setnive1]=useState(" stage1:correct[5] incorrect[2]")
-  const [niveau2,setnive2]=useState(" stage2:correct[15] incorrret[5]")
-  const [niveau3,setnive3]=useState(" stage3:corrrect[35] incorrect[10]")
-  
+  const [niveau, setNive] = useState("votre stage est:");
+  const [niveau1, setNive1] = useState(" stage1:correct[5] incorrect[2]");
+  const [niveau2, setNive2] = useState(" stage2:correct[15] incorrect[5]");
+  const [niveau3, setNive3] = useState(" stage3:correct[35] incorrect[10]");
+
   const [score, setScore] = useState({
     correct: 0,
     fals: 0,
@@ -52,11 +53,14 @@ function FlagGame() {
         otherOptions.push(optionFlag.name.common);
       }
     }
-    setOptions([randomFlag.name.common, ...otherOptions]);
-    setnive1('')
-    setnive2('')
-    setnive3('')
 
+    // Shuffle the options, including the correct answer
+    const shuffledOptions = [randomFlag.name.common, ...otherOptions].sort(() => Math.random() - 0.5);
+
+    setOptions(shuffledOptions);
+    setNive1('');
+    setNive2('');
+    setNive3('');
   }
 
   function addCount() {
@@ -87,7 +91,7 @@ function FlagGame() {
         setOptions([]);
         getRandom(); // Start the next stage
       }
-    } else if (score.correct >= 15 && score.fals <=5 && stage === 2) {
+    } else if (score.correct >= 15 && score.fals <= 5 && stage === 2) {
       alert("FELICITATION 2 EME STAGE");
       const pass2 = window.confirm("vous pass 3 eme stage");
       if (pass2) {
@@ -113,11 +117,17 @@ function FlagGame() {
       }
     } else if (score.correct >= 35 && score.fals <= 10 && stage === 3) {
       alert("FELICITATION 3 EME STAGE");
-      const pass3 = window.confirm("vous avez termine le jeu");
+      const pass3 = window.confirm("vous avez termine le jeu rejouer");
       if (pass3) {
-      
+        setStage(1);
+        setScore({ correct: 0, fals: 0 });
+        setCount(0);
+        setRandomFlagImage(null);
+        setRandomCountryName(null);
+        setOptions([]);
+        getRandom();
       }
-    } else if (score.correct <= 35 && score.fals <= 10 && stage === 3) {
+    } else if (score.correct <= 35 && score.fals >= 10 && stage === 3) {
       alert("Vous avez echoue😪");
       const pass4 = window.confirm("Rejouer?");
       if (pass4) {
@@ -127,7 +137,7 @@ function FlagGame() {
         setRandomFlagImage(null);
         setRandomCountryName(null);
         setOptions([]);
-        getRandom(); 
+        getRandom();
       }
     }
   }
@@ -151,49 +161,49 @@ function FlagGame() {
   }
 
   return (
-    <Container>
-      <Row className="justify-content-center">
-        <Col xs={5} md={8} lg={16}>
-          <h1 className="text-center">Flag Guessing Game</h1>
-          <div className="score text-center">
-            <p className="p1"> Correct Answers: {score.correct}</p>
-            <p className="p2"> Incorrect Answers: {score.fals} </p>
+    <Container fluid>
+      <Row className="justify-content-center mt-5">
+        <Col xs={12} md={8} lg={6} className="text-center">
+          <h1>Flag Guessing Game</h1>
+          <div className="score">
+            <p className="p1">Correct Answers: {score.correct}</p>
+            <p className="p2">Incorrect Answers: {score.fals}</p>
           </div>
-  
+
           <Button
-            className="button"
+            className="button btn-primary"
             style={{ display: randomFlagImage ? "none" : "block" }}
             onClick={getRandom}
           >
             ARE YOU READY?
           </Button>
-           <h4>votre stage est:{stage}</h4>
-          <h5> {niveau1}</h5>
-          <h5> {niveau2}</h5>
-          <h5> {niveau3}</h5>
-          <br />
+
+          <h4 className="mt-3">Votre stage est: {stage}</h4>
+          <h5>{niveau1}</h5>
+          <h5>{niveau2}</h5>
+          <h5>{niveau3}</h5>
+
           {randomFlagImage && (
-            <img className="flag-image" src={randomFlagImage} alt="Flag" />
+            <img className="flag-image mt-3" src={randomFlagImage} alt="Flag" />
           )}
-          <br />
-          <div className="options text-center">
+
+          <div className="options mt-3">
             {options.map((option, index) => (
               <Button
                 key={index}
-                className="option btn btn-light"
+                className="option btn btn-light m-2"
                 onClick={() => changeValue(option)}
               >
                 {option}
               </Button>
             ))}
-            <p>{`${count}/${totalFlags}`}</p>
-           
-
+            <p className="mt-3">{`${count}/${totalFlags}`}</p>
           </div>
         </Col>
       </Row>
     </Container>
   );
 }
+
 
 export default FlagGame;
